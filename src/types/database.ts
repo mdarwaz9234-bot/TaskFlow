@@ -28,3 +28,10 @@ export interface UpdateTaskInput {
   due_date?: string | null;
   completed?: boolean;
 }
+
+export interface Profile {
+  id: string;
+  avatar_url: string | null;
+  display_name: string | null;
+  updated_at?: string;
+}
