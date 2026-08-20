@@ -96,7 +96,7 @@ export const TaskModal: FC<TaskModalProps> = ({
               type="text"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              placeholder="e.g. Complete Supabase integration"
+              placeholder="e.g. Prepare project presentation"
               className="w-full px-4 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-white placeholder-slate-500 text-sm focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all"
               required
               autoFocus

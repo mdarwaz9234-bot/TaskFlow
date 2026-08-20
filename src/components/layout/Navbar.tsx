@@ -170,7 +170,7 @@ export const Navbar: FC = () => {
               </h1>
 
               <span className="text-[10px] font-semibold tracking-wide text-indigo-400 uppercase">
-                SaaS Edition
+                Workspace
               </span>
             </div>
           </div>

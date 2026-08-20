@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { LoginForm } from '../components/auth/LoginForm';
 import { SignUpForm } from '../components/auth/SignUpForm';
-import { CheckSquare, ShieldCheck, Zap, Lock } from 'lucide-react';
+import { CheckSquare, Sparkles, Zap, Shield } from 'lucide-react';
 
 export const AuthPage: React.FC = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -26,28 +26,28 @@ export const AuthPage: React.FC = () => {
         {/* Left Copy Column */}
         <div className="lg:col-span-6 space-y-6 text-center lg:text-left">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-semibold uppercase tracking-wider">
-            <ShieldCheck className="w-4 h-4" />
-            <span>PostgreSQL Row Level Security Enabled</span>
+            <Sparkles className="w-4 h-4" />
+            <span>Smart &amp; Minimal Task Management</span>
           </div>
 
           <h1 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
-            Manage tasks with <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-violet-400">complete privacy.</span>
+            Organize your work, <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-violet-400">streamline your day.</span>
           </h1>
 
           <p className="text-slate-400 text-base leading-relaxed max-w-lg mx-auto lg:mx-0">
-            A full-stack task manager engineered with Supabase authentication and strict database isolation so your tasks are only seen by you.
+            Plan your goals, track daily priorities, and conquer your to-do list with a clean, distraction-free workspace designed to keep you focused.
           </p>
 
           <div className="grid grid-cols-2 gap-4 pt-4 text-left">
             <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800 space-y-1">
               <Zap className="w-5 h-5 text-indigo-400 mb-2" />
               <h4 className="text-sm font-semibold text-white">Instant Sync</h4>
-              <p className="text-xs text-slate-400">Real-time state updates powered by Supabase.</p>
+              <p className="text-xs text-slate-400">Stay updated across all your devices in real-time.</p>
             </div>
             <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800 space-y-1">
-              <Lock className="w-5 h-5 text-indigo-400 mb-2" />
-              <h4 className="text-sm font-semibold text-white">Row Level RLS</h4>
-              <p className="text-xs text-slate-400">Enforced directly inside the PostgreSQL database engine.</p>
+              <Shield className="w-5 h-5 text-indigo-400 mb-2" />
+              <h4 className="text-sm font-semibold text-white">Private &amp; Secure</h4>
+              <p className="text-xs text-slate-400">Your tasks are completely private and visible only to you.</p>
             </div>
           </div>
         </div>
@@ -64,7 +64,7 @@ export const AuthPage: React.FC = () => {
 
       {/* Footer */}
       <footer className="text-center text-xs text-slate-500 py-4 border-t border-slate-900">
-        TaskFlow Full-Stack Learning Project &copy; {new Date().getFullYear()}
+        TaskFlow — Organize your tasks effortlessly &copy; {new Date().getFullYear()}
       </footer>
     </div>
   );

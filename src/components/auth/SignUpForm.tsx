@@ -51,7 +51,7 @@ export const SignUpForm: FC<SignUpFormProps> = ({ onToggleForm }) => {
         </div>
         <h2 className="text-xl font-bold text-white">Account Created!</h2>
         <p className="text-sm text-slate-400">
-          You can now sign in with your credentials to access your private TaskFlow dashboard.
+          You can now sign in to access your personal task workspace.
         </p>
         <button
           onClick={onToggleForm}
@@ -67,7 +67,7 @@ export const SignUpForm: FC<SignUpFormProps> = ({ onToggleForm }) => {
     <div className="w-full max-w-md bg-slate-900 border border-slate-800 rounded-2xl p-8 shadow-2xl space-y-6">
       <div className="text-center space-y-2">
         <h2 className="text-2xl font-bold text-white tracking-tight">Create an account</h2>
-        <p className="text-sm text-slate-400">Start organizing tasks securely</p>
+        <p className="text-sm text-slate-400">Start organizing your daily workflow</p>
       </div>
 
       {error && (
