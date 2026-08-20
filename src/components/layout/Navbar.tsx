@@ -35,19 +35,41 @@ export const Navbar: FC = () => {
         return;
       }
 
+      // Check OAuth / Google metadata fallbacks
+      const oauthName = user.user_metadata?.full_name || user.user_metadata?.name || null;
+      const oauthAvatar = user.user_metadata?.avatar_url || user.user_metadata?.picture || null;
+
       if (data) {
-        setAvatarUrl(data.avatar_url);
-        setDisplayName(data.display_name);
+        const resolvedAvatar = data.avatar_url || oauthAvatar;
+        const resolvedName = data.display_name || oauthName;
+
+        setAvatarUrl(resolvedAvatar);
+        setDisplayName(resolvedName);
 
         // If user logged in and has NO display_name yet, prompt them!
-        if (!data.display_name) {
+        if (!resolvedName) {
+          setIsFirstTimeModal(true);
+          setIsNameModalOpen(true);
+        } else if (!data.display_name && oauthName) {
+          // Auto-save OAuth name to profiles
+          await supabase.from('profiles').upsert(
+            { id: user.id, display_name: oauthName, avatar_url: resolvedAvatar },
+            { onConflict: 'id' }
+          );
+        }
+      } else {
+        // No profile record found at all yet
+        if (oauthName || oauthAvatar) {
+          setAvatarUrl(oauthAvatar);
+          setDisplayName(oauthName);
+          await supabase.from('profiles').upsert(
+            { id: user.id, display_name: oauthName, avatar_url: oauthAvatar },
+            { onConflict: 'id' }
+          );
+        } else {
           setIsFirstTimeModal(true);
           setIsNameModalOpen(true);
         }
-      } else {
-        // No profile record found at all yet -> first time prompt!
-        setIsFirstTimeModal(true);
-        setIsNameModalOpen(true);
       }
     };
 

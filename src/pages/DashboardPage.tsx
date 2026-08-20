@@ -10,7 +10,7 @@ import { TaskModal } from '../components/tasks/TaskModal';
 import { DeleteConfirmModal } from '../components/tasks/DeleteConfirmModal';
 import { AlertCircle } from 'lucide-react';
 
-export const DashboardPage: React.FC = () => {
+export const DashboardPage = () => {
   const { user } = useAuth();
   const [tasks, setTasks] = useState<Task[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
